@@ -14,9 +14,12 @@ imgBlur = cv2.GaussianBlur(imgGray, (7, 7), 0)
 imgCanny = cv2.Canny(img,100,100)
 # increase the thickness of edge
 imgDialation = cv2.dilate(imgCanny,kernel,iterations=1)
+# erode dilated edge of image
+imgErode = cv2.erode(imgDialation,kernel,iterations=1)
 
 cv2.imshow("Gray Image", imgGray)
 cv2.imshow("Blur Image", imgBlur)
 cv2.imshow("Canny Image",imgCanny)
 cv2.imshow("Dialation Image",imgDialation)
+cv2.imshow("Eroded Image",imgErode)
 cv2.waitKey(0)
